@@ -2,13 +2,14 @@
 
 This project contains an end-to-end regression test suite built with **Cypress** for the SauceDemo application.
 
-The purpose of this project is to demonstrate practical automation testing skills, including:
+The goal of this project is to demonstrate practical automation testing skills, including:
 
 - Authentication validation
 - Cart functionality
 - Checkout flow
 - Positive and negative test scenarios
-- Test organization for scalability
+- Regression strategy
+- Continuous Integration (CI) setup
 
 ---
 
@@ -18,6 +19,9 @@ The purpose of this project is to demonstrate practical automation testing skill
 - JavaScript
 - Node.js
 - Git & GitHub
+- GitHub Actions (CI)
+- Mochawesome Reporting
+
 
 ---
 
@@ -25,17 +29,22 @@ The purpose of this project is to demonstrate practical automation testing skill
 
 cypress/
 e2e/
-regression/
 auth.cy.js
 cart.cy.js
 checkout.cy.js
 fixtures/
 support/
+.github/
+workflows/
+cypress.yml
 
 
 ---
 
-## Test Coverage
+
+---
+
+## 🧪 Test Coverage
 
 ### Authentication
 - Successful login
@@ -55,7 +64,34 @@ support/
 
 ## Continuous Integration
 
-This project is configured to run automatically using GitHub Actions on every push to the main branch.
+This project is configured with **GitHub Actions**.
+
+On every push to the `main` branch or pull request:
+
+- Dependencies are installed
+- Cypress tests run automatically
+- Mochawesome reports are generated
+- Screenshots and videos (on failure) are uploaded as artifacts
+
+This ensures automated regression validation and continuous quality control.
+
+---
+
+## Reporting
+
+Test execution generates:
+
+- JSON reports
+- Merged HTML report (Mochawesome)
+- Screenshots on failure
+- Execution videos
+
+Artifacts are available in the GitHub Actions workflow logs.
+
+
+
+
+
 
 
 
