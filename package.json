@@ -3,14 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+ "scripts": {
+  "cy:run": "cypress run",
+  "report:merge": "mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/mochawesome.json",
+  "report:html": "marge cypress/reports/mochawesome.json -f report -o cypress/reports/html",
+  "test:ci": "npm run cy:run && npm run report:merge && npm run report:html"
+},
+
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "cypress": "^15.10.0"
+    "cypress": "^15.10.0",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2"
   }
 }
